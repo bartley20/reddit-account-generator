@@ -134,7 +134,7 @@ func readUsers() []User {
 }
 
 func writeUsers(users []User) {
-	file, err := os.Create("users.json")
+	file, err := os.OpenFile("users.json", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		panic(err)
 	}
